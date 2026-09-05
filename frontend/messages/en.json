@@ -1,0 +1,4 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "rare_regions_argue": "Hello world, {name}!"
+}
