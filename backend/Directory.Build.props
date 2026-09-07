@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
+        <NoWarn>$(NoWarn);CS1573</NoWarn>
+    </PropertyGroup>
+</Project>
