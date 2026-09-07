@@ -16,7 +16,9 @@ string[] summaries =
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 ];
 
-app.MapGet("/weatherforecast", () =>
+var api = app.MapGroup("/api");
+
+api.MapGet("/weatherforecast", () =>
     {
         WeatherForecast[] forecast =
         [
