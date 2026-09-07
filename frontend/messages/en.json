@@ -1,4 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "rare_regions_argue": "Hello world, {name}!"
+  "rare_regions_argue": "Weather forecast",
+  "lazy_lights_relate": "Loading the weather…",
+  "tame_dancers_speak": "The weather forecast is:",
+  "chilly_beers_brake": "Failed to load weather."
 }
