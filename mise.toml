@@ -1,23 +1,35 @@
 [tools]
 bun = "1.4.2"
+dotnet = "10.0.400"
 
 # Dependencies
 
 [tasks.deps]
-depends = ["deps:frontend"]
+depends = ["deps:frontend", "deps:backend"]
 
 [tasks."deps:frontend"]
 dir = "frontend"
 run = "bun install"
 
+[tasks."deps:backend"]
+dir = "backend"
+run = "dotnet restore"
+
 # Dev
 
 [tasks.dev]
-depends = ["dev:frontend"]
+description = "Run both frontend and backend development servers concurrently"
+depends = ["dev:frontend", "dev:backend"]
 
 [tasks."dev:frontend"]
+description = "Run the frontend development server"
 dir = "frontend"
 run = "bun dev --open"
+
+[tasks."dev:backend"]
+description = "Run the backend development server"
+dir = "backend"
+run = "dotnet watch"
 
 # Formatting
 
