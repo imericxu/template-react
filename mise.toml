@@ -1,0 +1,9 @@
+[tools]
+bun = "1.4.2"
+
+[tasks.frontend-dev]
+dir = "frontend"
+run = "bun dev --open"
+
+[tasks.dev]
+run = "mise run frontend-dev"
