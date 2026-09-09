@@ -1,9 +1,14 @@
 [tools]
 bun = "1.4.2"
+dotnet = "10.0.400"
 
 [tasks.frontend-dev]
 dir = "frontend"
 run = "bun dev --open"
 
+[tasks.backend-dev]
+dir = "backend"
+run = "dotnet watch"
+
 [tasks.dev]
-run = "mise run frontend-dev"
+run = "mise run -j 2 backend-dev ::: frontend-dev"
