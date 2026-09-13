@@ -7,31 +7,44 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment()) app.MapOpenApi();
+if (app.Environment.IsDevelopment())
+    app.MapOpenApi();
 
 app.UseHttpsRedirection();
 
 string[] summaries =
 [
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    "Freezing",
+    "Bracing",
+    "Chilly",
+    "Cool",
+    "Mild",
+    "Warm",
+    "Balmy",
+    "Hot",
+    "Sweltering",
+    "Scorching",
 ];
 
 var api = app.MapGroup("/api");
 
-api.MapGet("/weatherforecast", () =>
-    {
-        WeatherForecast[] forecast =
-        [
-            .. Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-        ];
-        return forecast;
-    })
+api.MapGet(
+        "/weatherforecast",
+        () =>
+        {
+            WeatherForecast[] forecast =
+            [
+                .. Enumerable
+                    .Range(1, 5)
+                    .Select(index => new WeatherForecast(
+                        DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                        Random.Shared.Next(-20, 55),
+                        summaries[Random.Shared.Next(summaries.Length)]
+                    )),
+            ];
+            return forecast;
+        }
+    )
     .WithName("GetWeatherForecast");
 
 app.Run();

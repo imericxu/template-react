@@ -12,3 +12,15 @@ run = "dotnet watch"
 
 [tasks.dev]
 run = "mise run -j 2 backend-dev ::: frontend-dev"
+
+# Formatting
+
+[tasks.frontend-fmt]
+dir = "frontend"
+run = "bun run fmt"
+
+[tasks.backend-fmt]
+run = "dotnet csharpier format backend"
+
+[tasks.fmt]
+run = "mise run -j 2 backend-fmt ::: frontend-fmt"
