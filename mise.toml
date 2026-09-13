@@ -34,10 +34,14 @@ run = "dotnet watch"
 # Formatting
 
 [tasks.fmt]
-description = "Format the code"
-depends = ["fmt:frontend"]
+description = "Format both frontend and backend code"
+depends = ["fmt:frontend", "fmt:backend"]
 
 [tasks."fmt:frontend"]
 description = "Format the frontend code"
 dir = "frontend"
 run = "bun run fmt"
+
+[tasks."fmt:backend"]
+description = "Format the backend code"
+run = "dotnet csharpier format backend"
